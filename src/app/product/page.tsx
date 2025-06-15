@@ -1,5 +1,6 @@
 'use client';
 import { CardCustom } from '@/components/cardCustom/CardCustom';
+import { LoaderSvg } from '@/components/LoaderSvg/LoaderSvg';
 import { Input } from '@/components/ui/input';
 import type { Product } from '@/models/product';
 import { getProducts } from '@/services/product';
@@ -19,7 +20,9 @@ export default function Product() {
         <h1 className=" text-5xl text-amber-700 rounded-xl">Produtos</h1>
         <div>
           {isLoading ? (
-            <></>
+            <div className="w-full flex justify-center items-center">
+              <LoaderSvg />
+            </div>
           ) : (
             <div className="flex flex-col gap-10 mt-10">
               <div className="flex flex-col gap-1">
