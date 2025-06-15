@@ -6,6 +6,14 @@ export interface Product {
   category: Category;
   images: string[];
 }
+export interface ProductForm {
+  id?: string;
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  [key: `image${number}`]: string;
+}
 
 export interface Category {
   id: number;

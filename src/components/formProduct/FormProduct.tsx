@@ -1,5 +1,5 @@
 'use client';
-import { Product } from '@/models/product';
+import { Category, Product, ProductForm } from '@/models/product';
 import { Controller, useForm } from 'react-hook-form';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
@@ -9,17 +9,18 @@ import { Button } from '../ui/button';
 interface IFormProductProps {
   type: 'create' | 'update';
   product?: Product;
+  categories?: Category[];
 }
 
-export function FormProduct({ type, product }: IFormProductProps) {
+export function FormProduct({ type, product, categories }: IFormProductProps) {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<Product>();
+  } = useForm<ProductForm>();
 
-  function onSubmit(data: Product) {
+  function onSubmit(data: ProductForm) {
     console.log(data);
   }
 
@@ -47,7 +48,8 @@ export function FormProduct({ type, product }: IFormProductProps) {
                   render={({ field }) => (
                     <SelectCustom
                       onValueChangeCustom={field.onChange}
-                      valueCustom={product?.categoryId ?? field.value}
+                      valueCustom={String(product?.category.id ?? field.value)}
+                      categories={categories ?? []}
                     />
                   )}
                 />
@@ -69,12 +71,17 @@ export function FormProduct({ type, product }: IFormProductProps) {
               </div>
             </div>
             <div className="flex gap-5">
-              <div className="w-full">
-                <label htmlFor="images">Link Imagem</label>
-                <Input
-                  {...register('images')}
-                  defaultValue={product?.images ?? ''}
-                />
+              <div className="w-full flex flex-col gap-5">
+                {product?.images &&
+                  product?.images.map((img, index) => (
+                    <div key={index}>
+                      <label htmlFor="images">Link Imagem {index + 1}</label>
+                      <Input
+                        {...register(`image${Number(index)}`)}
+                        defaultValue={img ?? ''}
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
             <div>

@@ -12,15 +12,7 @@ export const itemsMenu = [
     icon: User,
     items: [
       {
-        title: 'Atualizar cliente',
-        url: '/',
-      },
-      {
         title: 'Criar cliente',
-        url: '/',
-      },
-      {
-        title: 'Deletar cliente',
         url: '/',
       },
       {
@@ -39,16 +31,8 @@ export const itemsMenu = [
         url: '/product',
       },
       {
-        title: 'Atualizar produto',
-        url: '/product/update',
-      },
-      {
         title: 'Criar produto',
         url: '/product/create',
-      },
-      {
-        title: 'Deletar produto',
-        url: '/product/delete',
       },
     ],
   },
