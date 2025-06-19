@@ -31,8 +31,10 @@ export function SelectCustom({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {categories.map(category => (
-            <SelectItem value={String(category.id)}>{category.name}</SelectItem>
+          {categories.map((category, index) => (
+            <SelectItem key={index} value={String(category.id)}>
+              {category.name}
+            </SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>

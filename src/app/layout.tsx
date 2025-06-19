@@ -6,6 +6,7 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/sideBar/Sidebar';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/lib/react-query';
+import { Toaster } from 'sonner';
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster duration={4000} position="top-right" />
         <QueryClientProvider client={queryClient}>
           <SidebarProvider>
             <div className="flex justify-start h-screen w-full">

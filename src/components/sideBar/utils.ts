@@ -7,21 +7,6 @@ export const itemsMenu = [
     icon: Home,
   },
   {
-    title: 'Cliente',
-    url: '/client',
-    icon: User,
-    items: [
-      {
-        title: 'Criar cliente',
-        url: '/',
-      },
-      {
-        title: 'Pesquisar cliente',
-        url: '/',
-      },
-    ],
-  },
-  {
     title: 'Produto',
     url: '/product',
     icon: Box,

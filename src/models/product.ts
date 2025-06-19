@@ -6,6 +6,15 @@ export interface Product {
   category: Category;
   images: string[];
 }
+
+export interface ProductDTO {
+  id?: string;
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  images: string[];
+}
 export interface ProductForm {
   id?: string;
   title: string;
